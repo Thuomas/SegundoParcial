@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SegundoParcial.Data;
 
@@ -10,9 +11,11 @@ using SegundoParcial.Data;
 namespace SegundoParcial.Migrations
 {
     [DbContext(typeof(EquipoContext))]
-    partial class EquipoContextModelSnapshot : ModelSnapshot
+    [Migration("20230612005222_Equipo-Deposito")]
+    partial class EquipoDeposito
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.5");

@@ -8,5 +8,6 @@ public class Deposito
 
     public virtual List<Area> Areas { get; set; }
 
+    public virtual List<Equipo> Equipos { get; set; }
 
 }

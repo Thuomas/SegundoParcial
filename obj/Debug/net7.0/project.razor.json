@@ -18660,6 +18660,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Gaston\\Desktop\\SegundoParcial\\Views\\Equipo\\Index.cshtml",
+      "TargetPath": "Views\\Equipo\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Gaston\\Desktop\\SegundoParcial\\Views\\Area\\Details.cshtml",
       "TargetPath": "Views\\Area\\Details.cshtml",
       "FileKind": "mvc"
@@ -18667,6 +18672,21 @@
     {
       "FilePath": "c:\\Users\\Gaston\\Desktop\\SegundoParcial\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gaston\\Desktop\\SegundoParcial\\Views\\Equipo\\Delete.cshtml",
+      "TargetPath": "Views\\Equipo\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gaston\\Desktop\\SegundoParcial\\Views\\Equipo\\Details.cshtml",
+      "TargetPath": "Views\\Equipo\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gaston\\Desktop\\SegundoParcial\\Views\\Equipo\\Edit.cshtml",
+      "TargetPath": "Views\\Equipo\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -18682,6 +18702,11 @@
     {
       "FilePath": "c:\\Users\\Gaston\\Desktop\\SegundoParcial\\Views\\Deposito\\Index.cshtml",
       "TargetPath": "Views\\Deposito\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gaston\\Desktop\\SegundoParcial\\Views\\Equipo\\Create.cshtml",
+      "TargetPath": "Views\\Equipo\\Create.cshtml",
       "FileKind": "mvc"
     },
     {

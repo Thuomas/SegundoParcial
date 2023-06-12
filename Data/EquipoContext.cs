@@ -25,5 +25,7 @@ namespace SegundoParcial.Data
             .WithMany(p=> p.Areas)
             .UsingEntity("AreaDeposito");
         }
+
+        public DbSet<SegundoParcial.Models.Equipo> Equipo { get; set; } = default!;
     }
 }
