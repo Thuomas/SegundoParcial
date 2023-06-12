@@ -9,5 +9,17 @@ public class EquipoViewModel
 
     public string NombreDeposito { get; set; }
 
+    public int Id { get; set; }
+
+    public string NumSerie { get; set; }
+
+    public DateOnly FechaProd { get; set; }
+
+    public DateOnly FechaVenta { get; set; }
+
+    public string? Comentario { get; set; }
+
+    public int DepositoId { get; set; }
+
 
 }

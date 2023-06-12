@@ -1,4 +1,5 @@
-@model IEnumerable<SegundoParcial.Models.Equipo>
+@using SegundoParcial.ViewModels;
+@model EquipoViewModel;
 
 @{
     ViewData["Title"] = "Index";
@@ -13,25 +14,25 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.NumSerie)
+                @Html.DisplayNameFor(model => model.Equipos[0].NumSerie)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FechaProd)
+                @Html.DisplayNameFor(model => model.Equipos[0].FechaProd)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FechaVenta)
+                @Html.DisplayNameFor(model => model.Equipos[0].FechaVenta)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Comentario)
+                @Html.DisplayNameFor(model => model.Equipos[0].Comentario)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Deposito)
+                @Html.DisplayNameFor(model => model.Equipos[0].Deposito)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Equipos) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.NumSerie)
@@ -46,7 +47,7 @@
                 @Html.DisplayFor(modelItem => item.Comentario)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Deposito.Id)
+                @Html.DisplayFor(modelItem => item.Deposito)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
