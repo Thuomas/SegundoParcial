@@ -18650,8 +18650,53 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Gaston\\Desktop\\SegundoParcial\\Views\\Deposito\\Details.cshtml",
+      "TargetPath": "Views\\Deposito\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gaston\\Desktop\\SegundoParcial\\Views\\Area\\Index.cshtml",
+      "TargetPath": "Views\\Area\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gaston\\Desktop\\SegundoParcial\\Views\\Area\\Details.cshtml",
+      "TargetPath": "Views\\Area\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Gaston\\Desktop\\SegundoParcial\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gaston\\Desktop\\SegundoParcial\\Views\\Area\\Delete.cshtml",
+      "TargetPath": "Views\\Area\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gaston\\Desktop\\SegundoParcial\\Views\\Deposito\\Edit.cshtml",
+      "TargetPath": "Views\\Deposito\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gaston\\Desktop\\SegundoParcial\\Views\\Deposito\\Index.cshtml",
+      "TargetPath": "Views\\Deposito\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gaston\\Desktop\\SegundoParcial\\Views\\Area\\Edit.cshtml",
+      "TargetPath": "Views\\Area\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gaston\\Desktop\\SegundoParcial\\Views\\Deposito\\Create.cshtml",
+      "TargetPath": "Views\\Deposito\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gaston\\Desktop\\SegundoParcial\\Views\\Deposito\\Delete.cshtml",
+      "TargetPath": "Views\\Deposito\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -18667,6 +18712,11 @@
     {
       "FilePath": "c:\\Users\\Gaston\\Desktop\\SegundoParcial\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gaston\\Desktop\\SegundoParcial\\Views\\Area\\Create.cshtml",
+      "TargetPath": "Views\\Area\\Create.cshtml",
       "FileKind": "mvc"
     },
     {

@@ -6,7 +6,7 @@ public class Area
 
     public string Nombre { get; set; }
 
-    
+    public virtual List<Deposito> Depositos { get; set; }
 
 
 }
