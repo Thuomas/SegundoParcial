@@ -7,40 +7,48 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SegundoParcial.Data;
 using SegundoParcial.Models;
+using SegundoParcial.Services;
+using SegundoParcial.ViewModels;
 
 namespace SegundoParcial.Controllers
 {
     public class AreaController : Controller
     {
-        private readonly EquipoContext _context;
+        private IAreaService _areaService;
+        private IDepositoService _depositoService;
 
-        public AreaController(EquipoContext context)
+        public AreaController(IAreaService areaService, IDepositoService depositoService)
         {
-            _context = context;
+            _areaService = areaService;
+            _depositoService=depositoService;
         }
 
         // GET: Area
         public async Task<IActionResult> Index()
         {
-              return _context.Area != null ? 
-                          View(await _context.Area.ToListAsync()) :
-                          Problem("Entity set 'EquipoContext.Area'  is null.");
+              var list = _areaService.GetAll();
+              var model = new AreaViewModel();
+              model.Areas= list;
+              return View(model);
         }
 
         // GET: Area/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Area == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var area = await _context.Area
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var area = _areaService.GetById(id.Value);
             if (area == null)
             {
                 return NotFound();
             }
+            var model= new AreaViewModel();
+            model.Depositos = area.Depositos;
+            model.Nombre = area.Nombre;
+            model.Id = area.Id;
 
             return View(area);
         }
@@ -48,6 +56,8 @@ namespace SegundoParcial.Controllers
         // GET: Area/Create
         public IActionResult Create()
         {
+            var depositoList = _depositoService.GetAll();
+            ViewData["Depositos"] = new SelectList(depositoList, "Id", "Name");
             return View();
         }
 
@@ -56,26 +66,31 @@ namespace SegundoParcial.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre")] Area area)
+        public async Task<IActionResult> Create([Bind("Id,Nombre")] AreaCreateViewModel areaView)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(area);
-                await _context.SaveChangesAsync();
+                var depositos = _depositoService.GetAll().Where(x=> areaView.DepositoIds.Contains(x.Id)).ToList();
+                var area = new Area{
+                    Nombre = areaView.Nombre,
+                    Depositos = depositos
+                };
+
+                _areaService.Create(area);
                 return RedirectToAction(nameof(Index));
             }
-            return View(area);
+            return View(areaView);
         }
 
         // GET: Area/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public IActionResult Edit(int? id)
         {
-            if (id == null || _context.Area == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var area = await _context.Area.FindAsync(id);
+            var area = _areaService.GetById(id.Value);
             if (area == null)
             {
                 return NotFound();
@@ -88,7 +103,7 @@ namespace SegundoParcial.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre")] Area area)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre")] AreaViewModel area)
         {
             if (id != area.Id)
             {
@@ -97,37 +112,23 @@ namespace SegundoParcial.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(area);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!AreaExists(area.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                var areaNueva = new Area();
+                areaNueva.Nombre= area.Nombre;
+                areaNueva.Depositos = area.Depositos;//resolver que no tiene depositos
+                _areaService.Update(areaNueva);
             }
             return View(area);
         }
 
         // GET: Area/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public IActionResult Delete(int? id)
         {
-            if (id == null || _context.Area == null)
+            if (id == null )
             {
                 return NotFound();
             }
 
-            var area = await _context.Area
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var area = _areaService.GetById(id.Value);
             if (area == null)
             {
                 return NotFound();
@@ -141,23 +142,20 @@ namespace SegundoParcial.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Area == null)
-            {
-                return Problem("Entity set 'EquipoContext.Area'  is null.");
-            }
-            var area = await _context.Area.FindAsync(id);
+            var area = _areaService.GetById(id);
+            
             if (area != null)
             {
-                _context.Area.Remove(area);
+                _areaService.Delete(area.Id);
             }
             
-            await _context.SaveChangesAsync();
+            
             return RedirectToAction(nameof(Index));
         }
 
         private bool AreaExists(int id)
         {
-          return (_context.Area?.Any(e => e.Id == id)).GetValueOrDefault();
+          return _areaService.GetById(id) !=null;
         }
     }
 }
