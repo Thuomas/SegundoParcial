@@ -45,6 +45,7 @@ namespace SegundoParcial.Controllers
             {
                 return NotFound();
             }
+            
             var model= new AreaViewModel();
             model.Depositos = area.Depositos;
             model.Nombre = area.Nombre;

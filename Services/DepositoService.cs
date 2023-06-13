@@ -13,7 +13,7 @@ public class DepositoService : IDepositoService
         _context = context;
     }
 
-    public void Create(Area obj)
+    public void Create(Deposito obj)
     {
         _context.Add(obj);
         _context.SaveChanges();
@@ -48,7 +48,7 @@ public class DepositoService : IDepositoService
     public Deposito? GetById(int id)
     {
         var deposito = GetQuery()
-            .Include(x => x.Nombre)
+            .Include(x => x.Areas)
             .FirstOrDefault(m => m.Id == id);
 
         return deposito;

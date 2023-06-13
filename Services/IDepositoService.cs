@@ -4,7 +4,7 @@ namespace SegundoParcial.Services;
 
 public interface IDepositoService
 {
-    void Create(Area obj);
+    void Create(Deposito obj);
     List<Deposito> GetAll(string nameFilter);
     List<Deposito> GetAll();
     void Update(Deposito obj);

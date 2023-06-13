@@ -7,47 +7,58 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SegundoParcial.Data;
 using SegundoParcial.Models;
+using SegundoParcial.Services;
+using SegundoParcial.ViewModels;
 
 namespace SegundoParcial.Controllers
 {
     public class DepositoController : Controller
     {
-        private readonly EquipoContext _context;
+        private IAreaService _areaService;
+        private IDepositoService _depositoService;
 
-        public DepositoController(EquipoContext context)
+        public DepositoController(IAreaService areaService, IDepositoService depositoService)
         {
-            _context = context;
+            _areaService = areaService;
+            _depositoService=depositoService;
         }
 
         // GET: Deposito
         public async Task<IActionResult> Index()
         {
-              return _context.Deposito != null ? 
-                          View(await _context.Deposito.ToListAsync()) :
-                          Problem("Entity set 'EquipoContext.Deposito'  is null.");
+              var list = _depositoService.GetAll();
+              var model = new DepositoViewModel();
+              model.Depositos= list;
+              return View(model);
         }
 
         // GET: Deposito/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Deposito == null)
+            if (id == null )
             {
                 return NotFound();
             }
 
-            var deposito = await _context.Deposito
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var deposito = _depositoService.GetById(id.Value);
             if (deposito == null)
             {
                 return NotFound();
             }
 
-            return View(deposito);
+            var model= new DepositoViewModel();
+            model.Areas = deposito.Areas;
+            model.NombreDeposito = deposito.Nombre;
+            model.Id = deposito.Id;
+
+            return View(model);
         }
 
         // GET: Deposito/Create
         public IActionResult Create()
         {
+            var areaList = _areaService.GetAll();
+             ViewData["Areas"] = new SelectList(areaList, "Id", "Name");
             return View();
         }
 
@@ -56,31 +67,44 @@ namespace SegundoParcial.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre")] Deposito deposito)
+        public async Task<IActionResult> Create([Bind("Id,Nombre")] DepositoViewModel depositoView)
         {
+            ModelState.Remove("NombreDeposito");
             if (ModelState.IsValid)
             {
-                _context.Add(deposito);
-                await _context.SaveChangesAsync();
+                var deposito = new Deposito{
+                    Nombre = depositoView.Nombre
+                };
+                DepositoCreateViewModel depositoN = new DepositoCreateViewModel();
+                //var areas = _areaService.GetAll().Where(x=>depositoN.AreaIds.Contains(x.Id)).ToList();
+                //deposito.Areas = areas;
+                _depositoService.Create(deposito);
+
                 return RedirectToAction(nameof(Index));
             }
-            return View(deposito);
+                 return View(depositoView);
         }
+           
+        
 
         // GET: Deposito/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public IActionResult Edit(int? id)
         {
-            if (id == null || _context.Deposito == null)
+            if (id == null )
             {
                 return NotFound();
             }
 
-            var deposito = await _context.Deposito.FindAsync(id);
+            var deposito = _depositoService.GetById(id.Value);
             if (deposito == null)
             {
                 return NotFound();
             }
-            return View(deposito);
+            DepositoViewModel depositoN=new DepositoViewModel();
+            depositoN.Areas = deposito.Areas;
+            depositoN.Id = deposito.Id;
+            depositoN.Nombre = deposito.Nombre;
+            return View(depositoN);
         }
 
         // POST: Deposito/Edit/5
@@ -88,7 +112,7 @@ namespace SegundoParcial.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre")] Deposito deposito)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre")] DepositoViewModel deposito)
         {
             if (id != deposito.Id)
             {
@@ -97,43 +121,32 @@ namespace SegundoParcial.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(deposito);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!DepositoExists(deposito.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+               var depositoN = new Deposito();
+               depositoN.Nombre = deposito.NombreDeposito;
+               depositoN.Id = deposito.Id;
+               _depositoService.Update(depositoN);
+                
             }
-            return View(deposito);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Deposito/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Deposito == null)
+            if (id == null )
             {
                 return NotFound();
             }
 
-            var deposito = await _context.Deposito
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var deposito = _depositoService.GetById(id.Value);
             if (deposito == null)
             {
                 return NotFound();
             }
+            DepositoViewModel depositoN = new DepositoViewModel();
+            depositoN.Id = deposito.Id;
 
-            return View(deposito);
+            return View(depositoN);
         }
 
         // POST: Deposito/Delete/5
@@ -141,23 +154,18 @@ namespace SegundoParcial.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Deposito == null)
+            var deposito = _depositoService.GetById(id);
+
+            if(deposito !=null)
             {
-                return Problem("Entity set 'EquipoContext.Deposito'  is null.");
+                _depositoService.Delete(deposito.Id);
             }
-            var deposito = await _context.Deposito.FindAsync(id);
-            if (deposito != null)
-            {
-                _context.Deposito.Remove(deposito);
-            }
-            
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool DepositoExists(int id)
         {
-          return (_context.Deposito?.Any(e => e.Id == id)).GetValueOrDefault();
+          return _depositoService.GetById(id) !=null;
         }
     }
 }
