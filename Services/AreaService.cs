@@ -47,9 +47,9 @@ public class AreaService : IAreaService
 
     public Area? GetById(int id)
     {
-        var area = GetQuery()
-            .Include(x => x.Nombre)
-            .FirstOrDefault(m => m.Id == id);
+        var area = _context.Area.
+        Include(x =>x.Depositos).
+        FirstOrDefault(x =>x.Id == id);
 
         return area;
     }

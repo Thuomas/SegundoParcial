@@ -50,7 +50,7 @@ namespace SegundoParcial.Controllers
             model.Nombre = area.Nombre;
             model.Id = area.Id;
 
-            return View(area);
+            return View(model);
         }
 
         // GET: Area/Create
@@ -66,17 +66,19 @@ namespace SegundoParcial.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre")] AreaCreateViewModel areaView)
+        public async Task<IActionResult> Create([Bind("Id,Nombre")] AreaViewModel areaView)
         {
             if (ModelState.IsValid)
             {
-                var depositos = _depositoService.GetAll().Where(x=> areaView.DepositoIds.Contains(x.Id)).ToList();
+                
                 var area = new Area{
-                    Nombre = areaView.Nombre,
-                    Depositos = depositos
+                    Nombre = areaView.Nombre                    
                 };
-
+                AreaCreateViewModel nuevaArea = new AreaCreateViewModel();
+                var depositos = _depositoService.GetAll().Where(x=> nuevaArea.DepositoIds.Contains(x.Id)).ToList();
+                area.Depositos = depositos;
                 _areaService.Create(area);
+
                 return RedirectToAction(nameof(Index));
             }
             return View(areaView);
@@ -95,7 +97,12 @@ namespace SegundoParcial.Controllers
             {
                 return NotFound();
             }
-            return View(area);
+            AreaViewModel areaN = new AreaViewModel();
+           areaN.Depositos = area.Depositos;
+           areaN.Id = area.Id;
+           areaN.Nombre = area.Nombre;
+
+            return View(areaN);
         }
 
         // POST: Area/Edit/5
@@ -113,11 +120,12 @@ namespace SegundoParcial.Controllers
             if (ModelState.IsValid)
             {
                 var areaNueva = new Area();
-                areaNueva.Nombre= area.Nombre;
-                areaNueva.Depositos = area.Depositos;//resolver que no tiene depositos
+                areaNueva.Id = area.Id;
+                areaNueva.Nombre = area.Nombre;
+                //areaNueva.Depositos = area.Depositos;//resolver que no tiene depositos
                 _areaService.Update(areaNueva);
             }
-            return View(area);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Area/Delete/5
@@ -133,8 +141,10 @@ namespace SegundoParcial.Controllers
             {
                 return NotFound();
             }
+            AreaViewModel areaN = new AreaViewModel();
+            areaN.Id = area.Id;
 
-            return View(area);
+            return View(areaN);
         }
 
         // POST: Area/Delete/5

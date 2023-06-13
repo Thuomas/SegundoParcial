@@ -1,12 +1,18 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SegundoParcial.Data;
+using SegundoParcial.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<EquipoContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("EquipoContext") ?? throw new InvalidOperationException("Connection string 'EquipoContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IAreaService, AreaService>();
+builder.Services.AddScoped<IDepositoService, DepositoService>();
+builder.Services.AddScoped<IEquipoService, EquipoService>();
 
 var app = builder.Build();
 

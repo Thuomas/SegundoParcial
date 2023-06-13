@@ -9,97 +9,97 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SegundoParcial
 build_property.RootNamespace = SegundoParcial
-build_property.ProjectDir = c:\Users\Gaston\Desktop\SegundoParcial\
+build_property.ProjectDir = C:\Users\Gaston\Desktop\SegundoParcial\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = c:\Users\Gaston\Desktop\SegundoParcial
+build_property.MSBuildProjectDirectory = C:\Users\Gaston\Desktop\SegundoParcial
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/Users/Gaston/Desktop/SegundoParcial/Views/Area/Create.cshtml]
+[C:/Users/Gaston/Desktop/SegundoParcial/Views/Area/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJlYVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Gaston/Desktop/SegundoParcial/Views/Area/Delete.cshtml]
+[C:/Users/Gaston/Desktop/SegundoParcial/Views/Area/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJlYVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Gaston/Desktop/SegundoParcial/Views/Area/Details.cshtml]
+[C:/Users/Gaston/Desktop/SegundoParcial/Views/Area/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJlYVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Gaston/Desktop/SegundoParcial/Views/Area/Edit.cshtml]
+[C:/Users/Gaston/Desktop/SegundoParcial/Views/Area/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJlYVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Gaston/Desktop/SegundoParcial/Views/Area/Index.cshtml]
+[C:/Users/Gaston/Desktop/SegundoParcial/Views/Area/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJlYVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Gaston/Desktop/SegundoParcial/Views/Deposito/Create.cshtml]
+[C:/Users/Gaston/Desktop/SegundoParcial/Views/Deposito/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwb3NpdG9cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Gaston/Desktop/SegundoParcial/Views/Deposito/Delete.cshtml]
+[C:/Users/Gaston/Desktop/SegundoParcial/Views/Deposito/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwb3NpdG9cRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Gaston/Desktop/SegundoParcial/Views/Deposito/Details.cshtml]
+[C:/Users/Gaston/Desktop/SegundoParcial/Views/Deposito/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwb3NpdG9cRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Gaston/Desktop/SegundoParcial/Views/Deposito/Edit.cshtml]
+[C:/Users/Gaston/Desktop/SegundoParcial/Views/Deposito/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwb3NpdG9cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Gaston/Desktop/SegundoParcial/Views/Deposito/Index.cshtml]
+[C:/Users/Gaston/Desktop/SegundoParcial/Views/Deposito/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwb3NpdG9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Gaston/Desktop/SegundoParcial/Views/Equipo/Create.cshtml]
+[C:/Users/Gaston/Desktop/SegundoParcial/Views/Equipo/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBvXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Gaston/Desktop/SegundoParcial/Views/Equipo/Delete.cshtml]
+[C:/Users/Gaston/Desktop/SegundoParcial/Views/Equipo/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBvXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Gaston/Desktop/SegundoParcial/Views/Equipo/Details.cshtml]
+[C:/Users/Gaston/Desktop/SegundoParcial/Views/Equipo/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBvXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Gaston/Desktop/SegundoParcial/Views/Equipo/Edit.cshtml]
+[C:/Users/Gaston/Desktop/SegundoParcial/Views/Equipo/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBvXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Gaston/Desktop/SegundoParcial/Views/Equipo/Index.cshtml]
+[C:/Users/Gaston/Desktop/SegundoParcial/Views/Equipo/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBvXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Gaston/Desktop/SegundoParcial/Views/Home/Index.cshtml]
+[C:/Users/Gaston/Desktop/SegundoParcial/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Gaston/Desktop/SegundoParcial/Views/Home/Privacy.cshtml]
+[C:/Users/Gaston/Desktop/SegundoParcial/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Gaston/Desktop/SegundoParcial/Views/Shared/Error.cshtml]
+[C:/Users/Gaston/Desktop/SegundoParcial/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Gaston/Desktop/SegundoParcial/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Gaston/Desktop/SegundoParcial/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Gaston/Desktop/SegundoParcial/Views/_ViewImports.cshtml]
+[C:/Users/Gaston/Desktop/SegundoParcial/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Gaston/Desktop/SegundoParcial/Views/_ViewStart.cshtml]
+[C:/Users/Gaston/Desktop/SegundoParcial/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Gaston/Desktop/SegundoParcial/Views/Shared/_Layout.cshtml]
+[C:/Users/Gaston/Desktop/SegundoParcial/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-gn87swfqcy
